@@ -6,16 +6,37 @@
 </head>
 <body>
     <h1>Welcome to the calculator app</h1>
-    <ul class="calculator">
-        <li class="calc-button">1</li>
-        <li class="calc-button">2</li>
-        <li class="calc-button">3</li>
-        <li class="calc-button">4</li>
-        <li class="calc-button">5</li>
-        <li class="calc-button">6</li>
-        <li class="calc-button">7</li>
-        <li class="calc-button">8</li>
-        <li class="calc-button">9</li>
-        <li class="calc-button">0</li>
-    </ul>
+    <table class="calculator">
+        <tr>
+            <td colspan="3">
+                <input type="text" id="result">
+            </td>
+            <td><input type="button" value="c"></td>
+        </tr>
+        <tr class="calc-row">
+            <td><input type="button" value="1"></td>
+            <td><input type="button" value="2"></td>
+            <td><input type="button" value="3"></td>
+            <td><input type="button" value="+"></td>
+        </tr>
+        <tr class="calc-row">
+            <td><input type="button" value="4"></td>
+            <td><input type="button" value="5"></td>
+            <td><input type="button" value="6"></td>
+            <td><input type="button" value="-"></td>
+        </tr>
+        <tr class="calc-row">
+            <td><input type="button" value="7"></td>
+            <td><input type="button" value="8"></td>
+            <td><input type="button" value="9"></td>
+            <td><input type="button" value="/"></td>
+        </tr>
+        <tr class="calc-row">
+            <td><input type="button" value="0"></td>
+            <td><input type="button" value="^"></td>
+            <td><input type="button" value="*"></td>
+            <td><input type="button" value="="></td>
+        </tr>
+    </table>
+
 </body>

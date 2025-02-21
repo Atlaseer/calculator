@@ -2,7 +2,12 @@ body{
     background-color: black;
 }
 
+h1{
+    color: greenyellow;
+    align-items: center;
+}
+
 
 .calc-button{
-    color: grey;
+    background-color: green;
 }
