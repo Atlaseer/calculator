@@ -4,10 +4,24 @@ body{
 
 h1{
     color: greenyellow;
-    align-items: center;
+    text-align: center;    
 }
 
+.calc{
+    margin-left: auto;
+    margin-right: auto;
+}
 
-.calc-button{
-    background-color: green;
+input{
+    width: 100%;
+    padding: 20px 40px;
+    background-color: greenyellow;
+}
+
+.row{
+    display: flex;
+}
+
+button{
+    color: greenyellow;
 }
