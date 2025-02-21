@@ -16,12 +16,19 @@ input{
     width: 100%;
     padding: 20px 40px;
     background-color: greenyellow;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .row{
     display: flex;
 }
 
-button{
-    color: greenyellow;
+
+#input-field{
+    width: 75%;
+}
+
+#cancel{
+    width: 25%;
 }
