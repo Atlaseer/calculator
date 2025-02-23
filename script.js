@@ -17,4 +17,16 @@ function myFunction(event){
     document.getElementById("result").value += event.key;
 }
 
-var cal = document.getElementById("calcu")
+var cal = document.getElementById("calc");
+cal.onkeyup = function (event) {
+    if(event.keyCode===13){
+        console.log("Enter");
+        let x = document.getElementById("result").value
+        console.log(x)
+        solve();
+    }
+}
+
+function clear(){
+    document.getElementById("result").value = ""
+}
