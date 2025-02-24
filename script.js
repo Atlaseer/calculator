@@ -1,6 +1,7 @@
-//FUNction to display value
+const row = document.querySelector(".row")
 
-function dis(val){
+//This function displays the value
+function display(val){
     document.getElementById("result").value +=val
 }
 
@@ -25,6 +26,12 @@ cal.onkeyup = function (event) {
         console.log(x)
         solve();
     }
+}
+
+function solve(){
+    let x = document.getElementById("result").value
+    let y = math.evaluate(x)
+    document.getElementById("result").value =y
 }
 
 function clear(){
