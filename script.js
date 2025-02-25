@@ -1,6 +1,22 @@
-const row = document.querySelector(".row")
-
 //This function displays the value
+
+var firstNumber;
+var secondNumber;
+var operator;
+
+
+function switchFunction(event){
+    switch (event.key) {
+        case value:
+            
+            break;
+    
+        default:
+            break;
+    }
+}
+
+
 function display(val){
     document.getElementById("result").value +=val
 }
@@ -10,12 +26,35 @@ function myFunction(event){
         event.key =='2' ||event.key =='3' ||
         event.key =='4' ||event.key =='5' ||
         event.key =='6' ||event.key =='7' ||
-        event.key =='8' ||event.key =='9' ||
-        event.key =='+' ||event.key =='-' ||
-        event.key =='/' ||event.key =='*' ||
-        event.key =='^'
-    )
+        event.key =='8' ||event.key =='9')
     document.getElementById("result").value += event.key;
+
+    else if(event.key == '+'){
+        
+    }
+
+    else if(event.key =='-'){
+
+    }
+
+    else if(event.key == '/'){
+
+    }
+
+    else if(event.key == '*'){
+
+    }
+
+    else if(event.key == '^'){
+
+    }
+
+    else if(event.key == 'c'){
+
+    }
+    else{
+
+    }
 }
 
 var cal = document.getElementById("calc");
@@ -27,6 +66,10 @@ cal.onkeyup = function (event) {
         solve();
     }
 }
+
+
+
+
 
 function solve(){
     let x = document.getElementById("result").value
