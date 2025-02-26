@@ -1,59 +1,88 @@
 //This function displays the value
 
-var firstNumber;
-var secondNumber;
-var operator;
-
-
-function switchFunction(event){
-    switch (event.key) {
-        case value:
-            
-            break;
-    
-        default:
-            break;
-    }
-}
+var firstNumber="";
+var secondNumber="";
+var operator=null;
 
 
 function display(val){
     document.getElementById("result").value +=val
 }
 
+
 function myFunction(event){
+    let key = event.key
+
+    switch(true){
+        case/[0-9]/.test(key):
+            if(operator===null){
+                firstNumber +=key;
+                document.getElementById("result").value =firstNumber
+            } else {
+                secondNumber+=key;
+                document.getElementById("result").value=secondNumber;
+            }
+            break;
+
+        case['+', '-', '*', '/', '^']:
+            operator=key;
+            document.getElementById("result").value ="";
+            break;
+            
+        }
     if(event.key =='0' ||event.key =='1' ||
         event.key =='2' ||event.key =='3' ||
         event.key =='4' ||event.key =='5' ||
         event.key =='6' ||event.key =='7' ||
-        event.key =='8' ||event.key =='9')
-    document.getElementById("result").value += event.key;
+        event.key =='8' ||event.key =='9'){
+            if (operator == null){
+                firstNumber += event.key;
+                display(firstNumber);
+                return
+            }
 
-    else if(event.key == '+'){
-        
-    }
+            else{
+                secondNumber += event.key;
+                display(secondNumber);
+                return
+            }
 
-    else if(event.key =='-'){
+            document.getElementById("result").value += event.key;
 
-    }
+        }
 
-    else if(event.key == '/'){
 
-    }
-
-    else if(event.key == '*'){
-
-    }
-
-    else if(event.key == '^'){
-
-    }
 
     else if(event.key == 'c'){
-
+        operator == 'c'
     }
-    else{
+    else if(event.key == '='){
+        var result = 0;
+        
+        if(operator == '+'){
+            result = (firstNumber+secondNumber)
+            return result;
+        }
 
+        else if(operator == '-'){
+            result = (firstNumber-secondNumber)
+            return result;
+        }
+
+        else if(operator == '/'){
+            result = (firstNumber/secondNumber)
+            return result;
+        }
+
+        else if(operator == '*'){
+            result = (firstNumber*secondNumber)
+            return result;
+        }
+
+        else if(operator=='^'){
+            result = (firstNumber^secondNumber)
+            return result;
+        }
     }
 }
 
