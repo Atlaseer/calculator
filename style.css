@@ -1,5 +1,6 @@
 body{
     background-color: black;
+    text-align: center;
 }
 
 h1{
@@ -20,10 +21,29 @@ input{
     font-weight: bold;
 }
 
-.row{
-    display: flex;
+.calculator{
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: auto;
 }
 
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    color: greenyellow;
+}
+
+button{
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: greenyellow;
+    border-radius: 5px;    
+}
 
 #input-field{
     width: 75%;

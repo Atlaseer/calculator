@@ -1,111 +1,55 @@
 //This function displays the value
+let display = document.getElementById("display");
+let firstNumber=null;
+let exponentMode=false;
 
-var firstNumber="";
-var secondNumber="";
-var operator=null;
+function appendToDisplay(value){
+    display.value +=value ?? "";
+}
 
-
-function display(val){
-    document.getElementById("result").value +=val
+function clearDisplay(){
+    display.value = "";
+    firstNumber = null;
+    exponentMode = false;
 }
 
 
-function myFunction(event){
-    let key = event.key
-
-    switch(true){
-        case/[0-9]/.test(key):
-            if(operator===null){
-                firstNumber +=key;
-                document.getElementById("result").value =firstNumber
-            } else {
-                secondNumber+=key;
-                document.getElementById("result").value=secondNumber;
-            }
-            break;
-
-        case['+', '-', '*', '/', '^']:
-            operator=key;
-            document.getElementById("result").value ="";
-            break;
-            
-        }
-    if(event.key =='0' ||event.key =='1' ||
-        event.key =='2' ||event.key =='3' ||
-        event.key =='4' ||event.key =='5' ||
-        event.key =='6' ||event.key =='7' ||
-        event.key =='8' ||event.key =='9'){
-            if (operator == null){
-                firstNumber += event.key;
-                display(firstNumber);
-                return
-            }
-
-            else{
-                secondNumber += event.key;
-                display(secondNumber);
-                return
-            }
-
-            document.getElementById("result").value += event.key;
-
+function calculateResult(){
+    try{
+        if(exponentMode){
+            let exponent = parseFloat(display.value) ?? 1;
+            let powerFunction = exponentiation(exponent);
+            display.value = powerFunction(firstNumber);
+            exponentMode = false;
+            firstNumber = null;
+            return;
         }
 
+        if(!display.value.trim){
+            throw new Error("No input provided!")
+        }
 
+        if(display.value.includes("/0")){
+            throw new Error("Cannot divide by zero")            
+        }
 
-    else if(event.key == 'c'){
-        operator == 'c'
+        let result = (eval(display.value)) ?? "Error"
+        display.value = result;
+
+    } catch(error){
+        display.value = error.message;
     }
-    else if(event.key == '='){
-        var result = 0;
-        
-        if(operator == '+'){
-            result = (firstNumber+secondNumber)
-            return result;
-        }
 
-        else if(operator == '-'){
-            result = (firstNumber-secondNumber)
-            return result;
-        }
-
-        else if(operator == '/'){
-            result = (firstNumber/secondNumber)
-            return result;
-        }
-
-        else if(operator == '*'){
-            result = (firstNumber*secondNumber)
-            return result;
-        }
-
-        else if(operator=='^'){
-            result = (firstNumber^secondNumber)
-            return result;
-        }
-    }
 }
 
-var cal = document.getElementById("calc");
-cal.onkeyup = function (event) {
-    if(event.keyCode===13){
-        console.log("Enter");
-        let x = document.getElementById("result").value
-        console.log(x)
-        solve();
+const exponentiation = (exp) => {
+    return(base)=> {
+        return base**exp;
     }
 }
-
-
-
-
 
 function solve(){
     let x = document.getElementById("result").value
     let y = math.evaluate(x)
     document.getElementById("result").value =y
-}
-
-function clear(){
-    document.getElementById("result").value = ""
 }
